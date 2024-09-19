@@ -729,9 +729,7 @@ public:
   }
 
   std::list<AccessLog::InstanceSharedPtr> accessLogHandlers() {
-    std::list<AccessLog::InstanceSharedPtr> combined_log_handlers;
-    combined_log_handlers.insert(combined_log_handlers.end(), filter_log_handlers_.begin(),
-                                 filter_log_handlers_.end());
+    std::list<AccessLog::InstanceSharedPtr> combined_log_handlers(filter_log_handlers_);
     if (!Runtime::runtimeFeatureEnabled("envoy.reloadable_features.filter_access_loggers_first")) {
       combined_log_handlers.insert(combined_log_handlers.begin(), config_log_handlers_.begin(),
                                    config_log_handlers_.end());
