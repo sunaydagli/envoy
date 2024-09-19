@@ -157,7 +157,6 @@ private:
       still_alive_.reset();
     }
 
-    void log(AccessLog::AccessLogType type);
     void completeRequest();
 
     const Network::Connection* connection();
